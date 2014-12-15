@@ -23,7 +23,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
 // routes ======================================================================
-require('./routes.js')(app);
+require('./routes/routes.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
