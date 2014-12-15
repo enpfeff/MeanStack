@@ -26,6 +26,6 @@
   },
   "scripts" : {
     "postinstall": "bower install",
-    "start": "node server/http.js"
+    "start": "grunt"
   }
 }
