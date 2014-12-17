@@ -2,7 +2,7 @@
 // set up ======================================================================
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.sitenamePORT || 8080;
 
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -24,7 +24,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
 // routes ======================================================================
-require('./routes/routes.js')(app);
+require('./server/routes/routes.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
