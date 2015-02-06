@@ -6,7 +6,7 @@
 
     <script>
         var context = "/ian";
-        document.getElementById("MainScript").src = context+"/lib/requirejs/require.js";
+        document.getElementById("MainScript").setAttribute("src", context + "/lib/requirejs/require.js");
         document.getElementById("MainScript").setAttribute("data-main", context + "/app/main");
     </script>
 
