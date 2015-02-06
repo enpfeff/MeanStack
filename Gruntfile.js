@@ -154,5 +154,5 @@ module.exports = function(grunt){
     grunt.registerTask('lint', ['jshint', 'csslint']);
 
     // Build task(s).
-    grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
+    grunt.registerTask('build', ['lint', 'uglify', 'cssmin']);
 };
