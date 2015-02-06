@@ -3,8 +3,14 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script>var context = "/ian";</script>
-    <script data-main="this.context;/app/main" src="this.context;/lib/requirejs/require.js"></script>
+
+    <script>
+        var context = "/ian";
+        document.getElementById("MainScript").src = context+"/lib/requirejs/require.js";
+        document.getElementById("MainScript").setAttribute("data-main", context + "/app/main");
+    </script>
+
+    <script id="MainScript" data-main="" src=""></script>
 </head>
 <body ng-controller="IndexController">
     <h1>Hello World - Yes: {{name}}</h1>
