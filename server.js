@@ -2,7 +2,7 @@
 // set up ======================================================================
 var express = require('express');
 var app = express();
-var port = process.env.sitenamePORT || 8080;
+var port = process.env.ianPORT || 8080;
 
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -15,7 +15,7 @@ app.use('/lib', express.static('./public/lib'));
 app.use('/app', express.static('./public/app'));
 app.use('/common', express.static('../../common'));
 
-// log every request to the console
+// log every request to the console ok
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 //app.use(bodyParser.js());
