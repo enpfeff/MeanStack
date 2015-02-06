@@ -10,7 +10,7 @@ require.config({
         /* FOSS */
         'angular' : '../lib/angular/angular',
         'jquery': '../lib/jquery/dist/jquery.min',
-        'lodash': '../lib/lodash/dist/lodash.min',
+        'lodash': '../lib/lodash/lodash.min',
         'bootstrap': '../lib/angular-bootstrap/ui-bootstrap.min'
 
     },
