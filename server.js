@@ -2,7 +2,7 @@
 // set up ======================================================================
 var express = require('express');
 var app = express();
-var port = process.env.ianPORT || 8080;
+var port = process.env.PORT || 8080;
 
 var context="/ian";
 
@@ -13,9 +13,9 @@ var methodOverride = require('method-override');
 // configuration ===============================================================
 
 // static files ================================================================
-app.use(context + '/lib', express.static('./public/lib'));
-app.use(context + '/app', express.static('./public/app'));
-app.use(context + '/common', express.static('../../common'));
+app.use('/lib', express.static('./public/lib'));
+app.use('/app', express.static('./public/app'));
+app.use('/common', express.static('../../common'));
 
 // log every request to the console ok hjhjsdsdedesdasd
 app.use(morgan('dev'));
