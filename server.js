@@ -15,7 +15,7 @@ app.use('/lib', express.static('./public/lib'));
 app.use('/app', express.static('./public/app'));
 app.use('/common', express.static('../../common'));
 
-// log every request to the console ok hjhjsdsdedesd
+// log every request to the console ok hjhjsdsdedesdasd
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 //app.use(bodyParser.js());
