@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 
-var context="";
+var context="/demo";
 
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
