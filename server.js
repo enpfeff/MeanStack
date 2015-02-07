@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 
-var context="/ian";
+var context="";
 
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -17,7 +17,7 @@ app.use(context + '/lib', express.static('./public/lib'));
 app.use(context + '/app', express.static('./public/app'));
 app.use(context + '/common', express.static('../../common'));
 
-// log every request to the console ok hjhjsdsdedesdasd
+// log every request to the console ok
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 //app.use(bodyParser.js());

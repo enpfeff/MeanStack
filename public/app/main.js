@@ -27,7 +27,7 @@ require([
     'require',
     'jquery',
     'lodash',
-    'angular',
+    'angular'
 ], function(require, $, _, angular) {
 
     require(['app'], function(app) {

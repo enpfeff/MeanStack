@@ -112,11 +112,19 @@ module.exports = function(grunt){
                     ext: 'js,html',
                     watch: watchFiles.serverViews.concat(watchFiles.serverJS)
                 }
+            },
+            prod: {
+                script: 'server.js',
+                options: {
+                    env : {
+                        PORT: DOMAIN_PORT
+                    }
+                }
             }
         },
         concurrent: {
-            default: ['nodemon', 'watch'],
-            debug: ['nodemon', 'watch', 'node-inspector'],
+            default: ['nodemon:dev', 'watch'],
+            debug: ['nodemon:dev', 'watch', 'node-inspector'],
             options: {
                 logConcurrentOutput: true,
                 limit: 10
@@ -143,6 +151,8 @@ module.exports = function(grunt){
 
     // Default task(s).
     grunt.registerTask('default', ['lint', 'concurrent:default']);
+
+    grunt.registerTask('prod',['nodemon:prod']);
 
     // Debug task.
     grunt.registerTask('debug', ['lint', 'concurrent:debug']);
