@@ -2,9 +2,9 @@
 // set up ======================================================================
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3001;
 
-var context="/CHANGEME";
+var context="/FoodElement";
 
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
