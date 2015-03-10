@@ -5,7 +5,7 @@ define([], function() {
     'use strict';
 
     var controller = ['$scope', function($scope) {
-        $scope.name = 'Ian';
+        $scope.name = 'Ianba';
     }];
 
     return controller;
