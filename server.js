@@ -16,6 +16,7 @@ var methodOverride = require('method-override');
 app.use(context + '/lib', express.static('./public/lib'));
 app.use(context + '/app', express.static('./public/app'));
 app.use(context + '/common', express.static('../../common'));
+app.use(context + '/css', express.static('./public/css'));
 
 // log every request to the console ok
 app.use(morgan('dev'));
