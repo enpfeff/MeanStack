@@ -1,7 +1,7 @@
 {
   "name": "Home",
   "version": "0.0.1",
-  "main" : "http.js",
+  "main" : "server.js",
   "author" : "Ian Pfeffer",
   "dependencies" : {
     "express"    : "~4.7.2",

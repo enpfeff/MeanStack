@@ -10,6 +10,7 @@
     "angular-mocks": "*",
     "requirejs": "*",
     "jquery": "*",
+    "fontawesome": "~4.1.0",
     "bootstrap": "*",
     "angular-bootstrap": "*",
     "console": "*",
