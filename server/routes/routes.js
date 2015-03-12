@@ -3,10 +3,15 @@
  */
 
 'use strict';
+
+var config = require('../../config/config');
+
 module.exports = function(app) {
 
-    app.get('/FoodElement', function(req, res) {
-        // load the singlesd view file (angular will handle the page changes on the front-end)
-        res.sendfile('./server/pages/index.html');
-    });
+    // Root routing
+    var core = require('../../server/controllers/index.server.controller');
+
+    app.route(config.app.context).get(core.index);
+   // app.route('/').get(core.index);
+
 };

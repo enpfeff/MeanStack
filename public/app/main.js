@@ -38,6 +38,7 @@ require([
         // see app.js
         angular.element(document).ready(function() {
             app.initialize(function() {
+                if (window.location.hash === '#_=_') window.location.hash = '#!';
                 angular.bootstrap(document, ['app']);
             });
         });

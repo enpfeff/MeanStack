@@ -6,7 +6,8 @@ define([], function() {
 
     var controller = ['$scope','DataService', function($scope, dataService) {
        
-        $scope.name = dataService.init();
+        $scope.name = 'Ian';
+        dataService.init();
 
         console.log('debug');
         
