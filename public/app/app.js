@@ -8,7 +8,7 @@ define([
     'jquery',
     'bootstrap',
     'controllers/header',
-    'services/header',
+    'factories/header',
     'ActiveResource'
 ], function(angular,
             $,
