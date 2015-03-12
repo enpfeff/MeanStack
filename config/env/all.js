@@ -9,6 +9,7 @@ module.exports = {
         description: 'This is where i dont know',
         keywords: 'mongodb, express, angularjs, node.js, mongoose, passport, FoodElement'
     },
+    context: '/FoodElement',
     port: process.env.PORT || 3001,
     templateEngine: 'swig',
     // The secret should be set to a non-guessable string that

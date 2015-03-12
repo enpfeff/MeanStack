@@ -22,7 +22,6 @@ module.exports = {
         }
     },
     app: {
-        title: 'FoodElement - Development Environment',
-        context: '/FoodElement'
+        title: 'FoodElement - Development Environment'
     }
 };

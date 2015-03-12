@@ -9,12 +9,14 @@ define([
     'bootstrap',
     'controllers/header',
     'factories/header',
+    'config/AngularConfig',
     'ActiveResource'
 ], function(angular,
             $,
             bootstrap,
             controllers,
             services,
+            config,
             $resource) {
 
     var initialize = function(callback) {
@@ -25,6 +27,7 @@ define([
             ]);
 
         // for these files see their associated header.js
+        config.initialize(mainModule);
         controllers.initialize(mainModule);
         services.initialize(mainModule);
         // go back to main and bootstrap/tie it to the DOM

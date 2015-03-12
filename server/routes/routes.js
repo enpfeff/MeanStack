@@ -11,7 +11,7 @@ module.exports = function(app) {
     // Root routing
     var core = require('../../server/controllers/index.server.controller');
 
-    app.route(config.app.context).get(core.index);
+    app.route(config.context).get(core.index);
    // app.route('/').get(core.index);
 
 };
