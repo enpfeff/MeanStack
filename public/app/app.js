@@ -7,21 +7,26 @@ define([
     'angular',
     'jquery',
     'bootstrap',
-    'controllers/header'
+    'controllers/header',
+    'services/header',
+    'ActiveResource'
 ], function(angular,
             $,
             bootstrap,
-            controllers ) {
+            controllers,
+            services,
+            $resource) {
 
     var initialize = function(callback) {
         //this is the heart of the angular app
         var mainModule = angular.module('app', [
-                'ui.bootstrap'
+                'ui.bootstrap',
+                'ActiveResource'
             ]);
 
         // for these files see their associated header.js
         controllers.initialize(mainModule);
-
+        services.initialize(mainModule);
         // go back to main and bootstrap/tie it to the DOM
         callback();
     };

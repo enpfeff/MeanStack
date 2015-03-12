@@ -4,8 +4,10 @@
 define([], function() {
     'use strict';
 
-    var controller = ['$scope', function($scope) {
-        $scope.name = 'Ianba';
+    var controller = ['$scope','InitService', function($scope, initService) {
+       
+        $scope.name = initService.init();
+        
     }];
 
     return controller;

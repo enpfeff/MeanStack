@@ -14,7 +14,9 @@
     "bootstrap": "*",
     "angular-bootstrap": "*",
     "console": "*",
-    "lodash": "3.1.0"
+    "lodash": "3.1.0",
+    "ui-route": "0.2.13",
+    "ngActiveResource": "0.7.6"
   },
   "resolutions": {
     "angular": ">=1 <1.3.0"

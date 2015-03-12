@@ -11,7 +11,8 @@ require.config({
         'angular' : '../lib/angular/angular',
         'jquery': '../lib/jquery/dist/jquery.min',
         'lodash': '../lib/lodash/lodash.min',
-        'bootstrap': '../lib/angular-bootstrap/ui-bootstrap.min'
+        'bootstrap': '../lib/angular-bootstrap/ui-bootstrap.min',
+        'ActiveResource':'../lib/ngActiveResource/dist/ng-active-resource.min'
 
     },
     /* This tells the app what order things need to be loaded in.  This case Angular is the priority */
@@ -19,7 +20,8 @@ require.config({
         'angular' : {
             'exports' : 'angular'
         },
-        'bootstrap': ['angular']
+        'bootstrap': ['angular'],
+        'ActiveResource': ['angular', 'lodash']
     }
 });
 
