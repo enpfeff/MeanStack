@@ -13,7 +13,7 @@ module.exports = function(grunt){
         serverViews: ['app/views/**/*.*'],
         serverJS: ['Gruntfile.js', 'server/**/*.js', 'config/**/*.js'],
         clientViews: ['public/app/html/*.html'],
-        clientJS: ['public/app/**/*.js'],
+        clientJS: ['public/app/**/**/*.js'],
         clientCSS: ['public/css/**/*.css'],
         commonJS: ['../../common/js/**/*.js'],
         commonCSS: ['../../common/css/**/*.css']

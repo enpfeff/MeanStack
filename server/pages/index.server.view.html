@@ -11,8 +11,16 @@
     
 </head>
 <body>
-    <div data-ng-include="'/app/pages/index.client.view.html'" ></div>
+    <div data-ng-include="'/app/modules/core/pages/index.client.view.html'" ></div>
 
-    <script id="MainScript" data-main="app/main" src="lib/requirejs/require.js"></script>
+    <!-- Config -->
+    <script src="app/require-cfg.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/requirejs/require.js"></script>
+    <script>
+        jQuery(function() {
+            require(['app/main']);
+        });
+    </script>
 </body>
 </html>
