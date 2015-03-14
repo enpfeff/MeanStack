@@ -34,5 +34,22 @@ module.exports = {
         options: {
             stream: 'access.log'
         }
+    },
+
+    assets: {
+        lib: {
+            css: [
+                'public/lib/bootstrap/dist/css/bootstrap.css',
+                'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+                'public/lib/fontawesome/css/font-awesome.css'
+            ]
+        },
+        css: [
+            'public/app/**/css/*.css'
+        ],
+        tests: [
+            'public/lib/angular-mocks/angular-mocks.js',
+            'public/modules/*/tests/*.js'
+        ]
     }
 };

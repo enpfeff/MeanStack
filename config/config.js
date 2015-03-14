@@ -50,3 +50,11 @@ module.exports.getGlobbedFiles = function(globPatterns, removeRoot) {
 
     return output;
 };
+
+/**
+ * Get the modules CSS files
+ */
+module.exports.getCSSAssets = function() {
+    var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
+    return output;
+};

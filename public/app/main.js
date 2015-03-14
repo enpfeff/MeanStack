@@ -4,21 +4,23 @@
 'use strict';
 
 define([
-    'require',
     'jquery',
     'lodash',
     'angular',
-    'ApplicationConfiguration'
-], function(require, $, _, angular, ApplicationConfiguration) {
+    'bootstrap',
+    'ApplicationConfiguration',
+    './core/core.client.module'
+], function($, _, angular, bootstrap, ApplicationConfiguration, core) {
 
-    require([ApplicationConfiguration.applicationModuleName], function(app) {
+    // push deps
+    ApplicationConfiguration.applicationModuleVendorDependencies.push(core);
+    // init app
+    var app = angular.module(ApplicationConfiguration.applicationModuleName, ApplicationConfiguration.applicationModuleVendorDependencies);
 
-        // When the DOM is ready go tell the app to initialize all the JS then tie it to the DOM
-        // see app.js
-        angular.element(document).ready(function() {
-            app.initialize(function() {
-                angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
-            });
-        });
+    // boot strap it
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
     });
+
+    return app;
 });

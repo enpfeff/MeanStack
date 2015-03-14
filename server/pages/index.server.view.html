@@ -5,22 +5,19 @@
     <title>Food Element</title>
 
     <!--Application CSS Files-->
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" type="text/css">
-    <link href="lib/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/foodElement.css" rel="stylesheet" type="text/css">
+    {% for cssFile in cssFiles %}
+        <link rel="stylesheet" href="{{cssFile}}">
+    {% endfor %}
+
     
 </head>
 <body>
-    <div data-ng-include="'/app/modules/core/pages/index.client.view.html'" ></div>
+    <div data-ng-include="'/app/core/pages/index.client.view.html'" ></div>
 
     <!-- Config -->
-    <script src="app/require-cfg.js"></script>
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/requirejs/require.js"></script>
-    <script>
-        jQuery(function() {
-            require(['app/main']);
-        });
-    </script>
+
+
+    <script src="lib/headjs-notify/src/load.js"></script>
+    <script src="app/boot.js"></script>
 </body>
 </html>
