@@ -19,7 +19,7 @@
                 'bootstrap': '../lib/angular-bootstrap/ui-bootstrap.min',
                 'ActiveResource':'../lib/ngActiveResource/dist/ng-active-resource.min',
 
-                'ApplicationConfiguration' : 'app/config'
+                'ApplicationConfiguration' : './app/config'
             },
             /* This tells the app what order things need to be loaded in.  This case Angular is the priority */
             shim : {
