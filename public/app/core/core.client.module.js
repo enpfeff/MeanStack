@@ -1,13 +1,23 @@
 'use strict';
 
 define([
+    //foss
     'angular',
-    './controllers/CoreController'
-], function (angular, CoreController) {
-        var moduleName = 'foodelement.core';
+
+    //config
+    'ApplicationConfiguration',
+
+    //controllers
+    './controllers/CoreController',
+
+    //routes
+    './config/core.client.routes'
+], function (angular, ApplicationConfiguration, CoreController, RouteManager) {
+        var moduleName = ApplicationConfiguration.applicationModuleName + '.core';
 
         angular.module(moduleName,[])
-            .controller( 'CoreController', CoreController );
+            .controller( 'CoreController', CoreController )
+            .config(RouteManager);
 
     return moduleName;
 });

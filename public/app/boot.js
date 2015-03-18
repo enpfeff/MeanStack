@@ -18,6 +18,9 @@
                 'lodash': '../lib/lodash/lodash.min',
                 'bootstrap': '../lib/angular-bootstrap/ui-bootstrap.min',
                 'ActiveResource':'../lib/ngActiveResource/dist/ng-active-resource.min',
+                'ng-route' : '../lib/angular-route/angular-route',
+                'ui-utils' : '../lib/angular-ui-utils/ui-utils',
+                'ui-router' : '../lib/angular-ui-router/release/angular-ui-router',
 
                 'ApplicationConfiguration' : './app/config'
             },
@@ -26,7 +29,11 @@
                 'angular' : {
                     'exports' : 'angular'
                 },
-                'bootstrap': ['angular']
+                'bootstrap': ['angular'],
+                'ui-utils': ['angular'],
+                'ui-router': ['angular'],
+                'ng-route' : ['angular']
+
             }
         });
 

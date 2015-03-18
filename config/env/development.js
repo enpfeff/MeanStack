@@ -5,8 +5,8 @@
 
 module.exports = {
     db: {
-        on: false,
-        uri: 'mongodb://localhost/mongo',
+        on: true,
+        uri: 'mongodb://localhost/foodelement',
         options: {
             user: '',
             pass: ''

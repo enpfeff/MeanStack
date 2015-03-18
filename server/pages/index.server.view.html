@@ -9,13 +9,16 @@
         <link rel="stylesheet" href="{{cssFile}}">
     {% endfor %}
 
-    
+    <base href="/">
 </head>
 <body>
-    <div data-ng-include="'/app/core/pages/index.client.view.html'" ></div>
-
+    <section data-ui-view></section>
     <!-- Config -->
 
+    <!--Embedding The User Object-->
+    <script type="text/javascript">
+        var user = {{ user | json | safe }};
+    </script>
 
     <script src="lib/headjs-notify/src/load.js"></script>
     <script src="app/boot.js"></script>

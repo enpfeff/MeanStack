@@ -19,8 +19,13 @@ if (config.db.on) {
     );
 }
 
+
+
 // Init the express application
 var app = require('./config/express')(db);
+
+// Bootstrap passport config
+require('./config/passport')();
 
 // listen (start app with node server.js) ======================================
 app.listen(config.port);
