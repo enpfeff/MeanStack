@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- Semantic META -->
+    <meta name="keywords" content="{{keywords}}">
+    <meta name="description" content="{{description}}">
+    <!-- General META -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{{title}}</title>
+    {% for cssFile in cssFiles %}
+        <link rel="stylesheet" href="{{cssFile}}">
+    {% endfor %}
+</head>
+<body>
+    <h1>View 2</h1>
+    <div data-ui-view></div>
+    <script src="app.js"></script>
+</body>
+</html>
