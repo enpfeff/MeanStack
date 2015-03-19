@@ -6,6 +6,9 @@ var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
 var exec = require('child_process').exec;
 
+var pkg = require('./package.json');
+var fs = require('fs');
+
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 
@@ -200,6 +203,12 @@ gulp.task('lint:js', tasks.lintjs);
 gulp.task('optimize', tasks.optimize);
 gulp.task('css', req, tasks.css);
 gulp.task('clear', tasks.clear);
+
+gulp.task('info', ['browserify'], function(){
+    fs.writeFile('dist/build-info.txt', 'App: ' + pkg.name);
+    fs.appendFile('dist/build-info.txt','\nBuild Date: ' + new Date());
+    fs.appendFile('dist/build-info.txt','\nVersion: ' + pkg.version);
+});
 // --------------------------
 // DEV/WATCH TASK
 // --------------------------
@@ -252,11 +261,13 @@ gulp.task('build', [
     'templates',
     'css',
     'assets',
-    'browserify'
+    'browserify',
+    'info'
 ]);
 
 gulp.task('default', ['watch']);
 
-// gulp (watch) : for development and livereload
-// gulp build : for a one off development build
+// gulp : for development and livereload
+// gulp build : for a production unminified build
 // gulp build --production : for a minified production build
+// gulp clear : removes all npm bower and dist directories (super clean)

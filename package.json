@@ -1,7 +1,7 @@
 {
-  "name": "bbi-seed",
+  "name": "FoodElement Web",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A starter project for BBI MEAN + Browserify",
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
