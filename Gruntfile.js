@@ -13,7 +13,7 @@ module.exports = function(grunt){
         serverViews: ['app/views/**/*.*'],
         serverJS: ['Gruntfile.js', 'server/**/*.js', 'config/**/*.js'],
         clientViews: ['public/app/html/*.html'],
-        clientJS: ['public/app/**/*.js'],
+        clientJS: ['public/app/**/**/*.js'],
         clientCSS: ['public/css/**/*.css'],
         commonJS: ['../../common/js/**/*.js'],
         commonCSS: ['../../common/css/**/*.css']
@@ -131,6 +131,9 @@ module.exports = function(grunt){
             }
         },
         env: {
+            dev: {
+                NODE_ENV: 'development'
+            },
             test: {
                 NODE_ENV: 'test'
             },
@@ -150,7 +153,7 @@ module.exports = function(grunt){
     // grunt.option('force', true);
 
     // Default task(s).
-    grunt.registerTask('default', ['lint', 'concurrent:default']);
+    grunt.registerTask('default', ['lint','env:dev', 'concurrent:default']);
 
     grunt.registerTask('prod',['nodemon:prod']);
 
