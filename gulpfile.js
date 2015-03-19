@@ -13,6 +13,7 @@ var buffer = require('vinyl-buffer');
 var argv = require('yargs').argv;
 // sass
 var postcss = require('gulp-postcss');
+var concatCss = require('gulp-concat-css');
 var autoprefixer = require('autoprefixer-core');
 var sourcemaps = require('gulp-sourcemaps');
 // BrowserSync
@@ -101,7 +102,7 @@ var tasks = {
     // html templates (when using the connect server)
     templates: function() {
         gulp.src('./public/modules/**/view/*.html')
-            .pipe(gulp.dest('./dist/'));
+            .pipe(gulp.dest('./dist/views'));
     },
     // --------------------------
     // Browserify
@@ -154,6 +155,12 @@ var tasks = {
                 optimizationLevel: production ? 3 : 1
             }))
             .pipe(gulp.dest('./client/assets/'));
+    },
+
+    css: function() {
+        return gulp.src('./public/modules/**/css/*.css')
+            .pipe(concatCss('bundle.css'))
+            .pipe(gulp.dest('./dist/css'));
     }
 };
 
@@ -166,19 +173,19 @@ var tasks = {
 // --------------------------
 gulp.task('clean', tasks.clean);
 // for production we require the clean method on every individual task
-var req = build ? ['clean'] : [];
+var req = ['clean'];
 // individual tasks
 gulp.task('templates', req, tasks.templates);
 gulp.task('assets', req, tasks.assets);
 gulp.task('browserify', req, tasks.browserify);
 gulp.task('lint:js', tasks.lintjs);
 gulp.task('optimize', tasks.optimize);
-
+gulp.task('css', tasks.css);
 gulp.task('clear', tasks.clear);
 // --------------------------
 // DEV/WATCH TASK
 // --------------------------
-gulp.task('watch', ['assets', 'templates', 'browserify', 'nodemon'], function() {
+gulp.task('watch', ['assets', 'templates', 'css', 'browserify', 'nodemon'], function() {
 
 // --------------------------
 // start refresh
@@ -203,7 +210,7 @@ gulp.task('watch', ['assets', 'templates', 'browserify', 'nodemon'], function() 
 // --------------------------
 // watch:Dist
 // --------------------------
-    gulp.watch('./dist/**/*.*').on('change', refresh.changed);
+    gulp.watch('./dist/**/*.*', ['clean']).on('change', refresh.changed);
 
     gutil.log(gutil.colors.bgGreen('Watching for changes...'));
 });

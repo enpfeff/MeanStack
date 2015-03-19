@@ -8,7 +8,7 @@ var RouteManager = function($stateProvider, $urlRouterProvider) {
     // Home state routing
     $stateProvider.state('home', {
         url: '/',
-        templateUrl: 'core/view/index.html'
+        templateUrl: 'views/core/view/index.html'
     });
 };
 

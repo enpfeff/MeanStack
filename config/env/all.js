@@ -48,9 +48,6 @@ module.exports = {
                 'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
                 'public/lib/fontawesome/css/font-awesome.min.css'
             ]
-        },
-        css: [
-            'public/modules/**/css/*.css'
-        ]
+        }
     }
 };
