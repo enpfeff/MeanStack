@@ -9,15 +9,15 @@ var exec = require('child_process').exec;
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 
+var minifyHtml = require('gulp-minify-html');
+
 var buffer = require('vinyl-buffer');
 var argv = require('yargs').argv;
 // sass
-var postcss = require('gulp-postcss');
+var minifyCss = require('gulp-minify-css');
 var concatCss = require('gulp-concat-css');
 var autoprefixer = require('autoprefixer-core');
 var sourcemaps = require('gulp-sourcemaps');
-// BrowserSync
-var browserSync = require('browser-sync');
 // js
 var watchify = require('watchify');
 var browserify = require('browserify');
@@ -101,8 +101,19 @@ var tasks = {
     // --------------------------
     // html templates (when using the connect server)
     templates: function() {
-        gulp.src('./public/modules/**/view/*.html')
-            .pipe(gulp.dest('./dist/views'));
+        var opts = {
+            conditionals: true,
+            spare:true
+        };
+        if (production) {
+            return gulp.src('./public/modules/**/view/*.html')
+                .pipe(minifyHtml(opts))
+                .pipe(gulp.dest('./dist/views'));
+        } else {
+            return gulp.src('./public/modules/**/view/*.html')
+                .pipe(gulp.dest('./dist/views'));
+        }
+
     },
     // --------------------------
     // Browserify
@@ -158,9 +169,16 @@ var tasks = {
     },
 
     css: function() {
-        return gulp.src('./public/modules/**/css/*.css')
-            .pipe(concatCss('bundle.css'))
-            .pipe(gulp.dest('./dist/css'));
+        if (production) {
+            return gulp.src('./public/modules/**/css/*.css')
+                .pipe(concatCss('bundle.css'))
+                .pipe(minifyCss({keepBreaks:false}))
+                .pipe(gulp.dest('./dist/css'));
+        } else {
+            return gulp.src('./public/modules/**/css/*.css')
+                .pipe(concatCss('bundle.css'))
+                .pipe(gulp.dest('./dist/css'));
+        }
     }
 };
 
@@ -180,7 +198,7 @@ gulp.task('assets', req, tasks.assets);
 gulp.task('browserify', req, tasks.browserify);
 gulp.task('lint:js', tasks.lintjs);
 gulp.task('optimize', tasks.optimize);
-gulp.task('css', tasks.css);
+gulp.task('css', req, tasks.css);
 gulp.task('clear', tasks.clear);
 // --------------------------
 // DEV/WATCH TASK
@@ -232,6 +250,7 @@ gulp.task('nodemon', ['assets', 'templates', 'browserify'], function () {
 gulp.task('build', [
     'clean',
     'templates',
+    'css',
     'assets',
     'browserify'
 ]);
