@@ -191,7 +191,7 @@ var tasks = {
 // --------------------------
 gulp.task('clean', tasks.clean);
 // for production we require the clean method on every individual task
-var req = ['clean'];
+var req = build ? ['clean'] : [];
 // individual tasks
 gulp.task('templates', req, tasks.templates);
 gulp.task('assets', req, tasks.assets);
@@ -223,12 +223,12 @@ gulp.task('watch', ['assets', 'templates', 'css', 'browserify', 'nodemon'], func
 // --------------------------
 // watch:html
 // --------------------------
-    gulp.watch('./public/modules/**/view/*.html', ['reload-templates']);
+    gulp.watch('./public/modules/**/view/*.html', ['templates']);
 
 // --------------------------
 // watch:Dist
 // --------------------------
-    gulp.watch('./dist/**/*.*', ['clean']).on('change', refresh.changed);
+    gulp.watch('./dist/**/*.*').on('change', refresh.changed);
 
     gutil.log(gutil.colors.bgGreen('Watching for changes...'));
 });
@@ -241,7 +241,7 @@ gulp.task('nodemon', ['assets', 'templates', 'browserify'], function () {
         env: {
             'NODE_ENV': 'development'
         },
-        ignore: ['./node_modules/**/*.*', './dist/**/*.*'],
+        ignore: ['/node_modules/**/*.*', '/dist/**/*.js', '/public/**/*.*'],
         nodeArgs: ['--debug']
     });
 });

@@ -4,8 +4,7 @@
 'use-strict';
 
 var CoreController = function($scope) {
-    $scope.name = 'Bra23345' +
-    '334dno2dsf22n';
+    $scope.name = 'Ian2';
 };
 
 module.exports = ['$scope', CoreController];
