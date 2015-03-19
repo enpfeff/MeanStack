@@ -1,16 +1,16 @@
 /**
- * Created by enpfeff on 3/11/15.
+ * Created by pfefferi on 3/18/15.
  */
 'use strict';
 
 module.exports = {
     db: {
-        on: true,
-        uri: 'mongodb://localhost/foodelement',
+        uri: 'mongodb://localhost/mean-dev',
         options: {
             user: '',
             pass: ''
-        }
+        },
+        on : false
     },
     log: {
         // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
@@ -22,6 +22,6 @@ module.exports = {
         }
     },
     app: {
-        title: 'FoodElement - Development Environment'
+        title: 'BBI - Development Environment'
     }
 };

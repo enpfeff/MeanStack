@@ -1,8 +1,11 @@
 /**
- * Created by enpfeff on 3/11/15.
+ * Created by pfefferi on 3/18/15.
  */
 'use strict';
 
+/**
+ * Module dependencies.
+ */
 var fs = require('fs'),
     http = require('http'),
     https = require('https'),
@@ -18,10 +21,9 @@ var fs = require('fs'),
     mongoStore = require('connect-mongo')({
         session: session
     }),
-    passport = require('passport'),
-    consolidate = require('consolidate'),
     flash = require('connect-flash'),
     config = require('./config'),
+    consolidate = require('consolidate'),
     path = require('path');
 
 module.exports = function(db) {
@@ -29,11 +31,9 @@ module.exports = function(db) {
     var app = express();
 
     // Globbing model files
-    if (config.db.on) {
-        config.getGlobbedFiles('./server/models/**/*.js').forEach(function (modelPath) {
-            require(path.resolve(modelPath));
-        });
-    }
+    config.getGlobbedFiles('./app/models/**/*.js').forEach(function(modelPath) {
+        require(path.resolve(modelPath));
+    });
 
     // Setting application local variables
     app.locals.title = config.app.title;
@@ -61,11 +61,11 @@ module.exports = function(db) {
     app.set('showStackError', true);
 
     // Set swig as the template engine
-    app.engine('server.view.html', consolidate[config.templateEngine]);
+    app.engine('html', consolidate[config.templateEngine]);
 
     // Set views path and view engine
-    app.set('view engine', 'server.view.html');
-    app.set('views', './server/pages');
+    app.set('view engine', 'html');
+    app.set('views', './app/views');
 
     // Enable logger (morgan)
     app.use(morgan(logger.getLogFormat(), logger.getLogOptions()));
@@ -93,8 +93,8 @@ module.exports = function(db) {
     app.disable('x-powered-by');
 
     // Setting the app router and static folder
-    // static files ================================================================
-    app.use(express.static(path.resolve('./public')));
+    app.use(express.static(path.resolve('./dist')));
+    app.use(express.static(path.resolve('./public/lib')));
 
     // CookieParser should be above session
     app.use(cookieParser());
@@ -114,15 +114,11 @@ module.exports = function(db) {
         }));
     }
 
-    // use passport session
-    app.use(passport.initialize());
-    app.use(passport.session());
-
     // connect flash for flash messages
     app.use(flash());
 
     // Globbing routing files
-    config.getGlobbedFiles('./server/routes/**/*.js').forEach(function(routePath) {
+    config.getGlobbedFiles('./app/routes/**/*.js').forEach(function(routePath) {
         require(path.resolve(routePath))(app);
     });
 

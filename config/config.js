@@ -1,12 +1,16 @@
 /**
- * Created by enpfeff on 3/11/15.
+ * Created by pfefferi on 3/18/15.
  */
 'use strict';
-
+/**
+ * Module dependencies.
+ */
 var _ = require('lodash'),
     glob = require('glob');
 
-
+/**
+ * Load app configurations
+ */
 module.exports = _.extend(
     require('./env/all'),
     require('./env/' + process.env.NODE_ENV) || {}
@@ -16,16 +20,13 @@ module.exports = _.extend(
  * Get files by glob patterns
  */
 module.exports.getGlobbedFiles = function(globPatterns, removeRoot) {
-    // For context switching
+// For context switching
     var _this = this;
-
-    // URL paths regex
+// URL paths regex
     var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');
-
-    // The output array
+// The output array
     var output = [];
-
-    // If glob pattern is array so we use each pattern in a recursive way, otherwise we use glob
+// If glob pattern is array so we use each pattern in a recursive way, otherwise we use glob
     if (_.isArray(globPatterns)) {
         globPatterns.forEach(function(globPattern) {
             output = _.union(output, _this.getGlobbedFiles(globPattern, removeRoot));
@@ -42,19 +43,15 @@ module.exports.getGlobbedFiles = function(globPatterns, removeRoot) {
                         return file.replace(removeRoot, '');
                     });
                 }
-
                 output = _.union(output, files);
             });
         }
     }
-
     return output;
 };
 
-/**
- * Get the modules CSS files
- */
+
 module.exports.getCSSAssets = function() {
-    var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
+    var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/lib/');
     return output;
 };
