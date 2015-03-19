@@ -4,12 +4,6 @@
 var RouteManager = function($stateProvider, $urlRouterProvider) {
     // Redirect to home view when route not found
     $urlRouterProvider.otherwise('/');
-
-    // Home state routing
-    $stateProvider.state('home', {
-        url: '/',
-        templateUrl: 'views/core/view/index.html'
-    });
 };
 
 module.exports = ['$stateProvider', '$urlRouterProvider', RouteManager];

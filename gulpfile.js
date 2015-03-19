@@ -241,7 +241,7 @@ gulp.task('nodemon', ['assets', 'templates', 'browserify'], function () {
         env: {
             'NODE_ENV': 'development'
         },
-        ignore: ['/node_modules/**/*.*', '/dist/**/*.js', '/public/**/*.*'],
+        ignore: ['/node_modules/**/*.*', '/dist/**/*.js', '/public/**/*'],
         nodeArgs: ['--debug']
     });
 });

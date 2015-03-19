@@ -1,67 +1,68 @@
-<div class="navbar-default sidebar" role="navigation">
+<div class="navbar-default sidebar" role="navigation" data-ng-controller="SidebarController">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
+
+            <!-- Search Bar -->
             <li class="sidebar-search">
                 <div class="input-group custom-search-form">
                     <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
                 </div>
-                <!-- /input-group -->
             </li>
+
+            <!-- Home -->
             <li>
-                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Inventory</a>
+                <a href="/#!/"><i class="fa fa-home fa-fw"></i>Home</a>
             </li>
+
+            <!-- Inventory -->
             <li>
-                <a href="tables.html"><i class="fa fa-table fa-fw"></i>Recipe Book</a>
+                <a href="/#!/inventory"><i class="fa fa-dashboard fa-fw"></i>Inventory</a>
             </li>
+
+            <!-- Recipe -->
             <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Shopping Cart</a>
+                <a href="/#!/recipe"><i class="fa fa-table fa-fw"></i>Recipe Book</a>
             </li>
+
+            <!-- Shopping Cart -->
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Meal Plans<span class="fa arrow"></span></a>
+                <a href="/#!/cart"><i class="fa fa-edit fa-fw"></i>Shopping Cart</a>
+            </li>
+
+            <!-- Meal Plans -->
+            <li>
+                <a href="/#!/plans"><i class="fa fa-sitemap fa-fw"></i>Meal Plans<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Second Level Item</a>
+                        <a href="#">Category 1</a>
                     </li>
                     <li>
-                        <a href="#">Second Level Item</a>
+                        <a href="#">Category 2</a>
                     </li>
                     <li>
-                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                        <a href="#">Category 3 <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="#">Category 3a</a>
                             </li>
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="#">Category 3b</a>
                             </li>
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="#">Category 3c</a>
                             </li>
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="#">Category 3d</a>
                             </li>
                         </ul>
-                        <!-- /.nav-third-level -->
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-files-o fa-fw"></i> Login<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="login.html">Login Page</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
             </li>
         </ul>
     </div>
-    <!-- /.sidebar-collapse -->
 </div>
-<!-- /.navbar-static-side -->
