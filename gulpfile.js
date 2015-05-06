@@ -109,11 +109,11 @@ var tasks = {
             spare:true
         };
         if (production) {
-            return gulp.src('./public/modules/**/view/*.html')
+            return gulp.src('./public/modules/**/views/**/*.html')
                 .pipe(minifyHtml(opts))
                 .pipe(gulp.dest('./dist/views'));
         } else {
-            return gulp.src('./public/modules/**/view/*.html')
+            return gulp.src('./public/modules/**/views/**/*.html')
                 .pipe(gulp.dest('./dist/views'));
         }
 
@@ -250,7 +250,7 @@ gulp.task('nodemon', ['assets', 'templates', 'browserify'], function () {
         env: {
             'NODE_ENV': 'development'
         },
-        ignore: ['/node_modules/**/*.*', '/dist/**/*.js', '/public/**/*'],
+        ignore: ['node_modules/**/*.*', 'dist/**/*.js', 'public/**/*'],
         nodeArgs: ['--debug']
     });
 });

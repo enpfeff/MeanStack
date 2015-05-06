@@ -6,8 +6,8 @@ var angular = require('angular');
 
 var app = angular.module(config.ApplicationName + '.core', []);
 
-app.controller('HeaderController', require('./controllers/HeaderController'));
-app.controller('SidebarController', require('./controllers/SidebarController'));
-app.config(require('./config/core.routes'));
+app.controller('CoreController', require('./controllers/CoreController'));
+
+app.config(require('./config/Routes'));
 
 module.exports = app;
