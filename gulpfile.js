@@ -31,8 +31,8 @@ var livereload = require('connect-livereload');
 // linting
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
-// testing/mocha
-var mocha = require('gulp-mocha');
+// testing
+var karma = require('karma').server;
 
 // gulp build --production
 var production = !!argv.production;
@@ -80,6 +80,13 @@ var handleError = function(task) {
 // CUSTOM TASK METHODS
 // --------------------------
 var tasks = {
+    test: function(cb) {
+        karma.start({
+            configFile: __dirname + '/karma.conf.js',
+            singleRun: true
+        }, cb)
+    },
+
     // --------------------------
     // Delete build folder
     // --------------------------
@@ -203,6 +210,7 @@ gulp.task('lint:js', tasks.lintjs);
 gulp.task('optimize', tasks.optimize);
 gulp.task('css', req, tasks.css);
 gulp.task('clear', tasks.clear);
+gulp.task('test', tasks.test);
 
 gulp.task('info', ['browserify'], function(){
     fs.writeFile('dist/build-info.txt', 'App: ' + pkg.name);

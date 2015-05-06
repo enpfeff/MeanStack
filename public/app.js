@@ -3,13 +3,15 @@
 // Declare public level module which depends on views, and components
 var angular = require('angular'),
     config = require('./config'),
-    core = require('./modules/core');
+    core = require('./modules/core'),
+    stTable = require('angular-smart-table');
 
 require('angular-ui-router');
 
 angular.element(document).ready(function() {
     var requires = [
         'ui.router',
+        'smart-table',
         core.name
     ];
 

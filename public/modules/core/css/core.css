@@ -5,3 +5,8 @@ html {
 body {
     height: 100%;
 }
+
+.st-selected {
+    background-color: #006dcc !important;
+    color: #DDDDDD;
+}

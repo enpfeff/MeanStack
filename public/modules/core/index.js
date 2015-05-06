@@ -8,6 +8,7 @@ var app = angular.module(config.ApplicationName + '.core', []);
 
 app.controller('CoreController', require('./controllers/CoreController'));
 
+app.directive('stCustomSelect', require('./directives/StCustomSelect'));
 app.config(require('./config/Routes'));
 
 module.exports = app;
