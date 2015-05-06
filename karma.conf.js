@@ -17,7 +17,7 @@ module.exports = function (config) {
         files: [
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
-
+            'public/modules/**/*.js',
             'public/modules/**/test/*.spec.js'
         ],
 
@@ -29,7 +29,8 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'public/modules/**/test/*.spec.js': ['browserify']
+            'public/modules/**/test/*.spec.js': ['browserify'],
+            'public/modules/**/*.js': ['browserify']
         },
 
 
