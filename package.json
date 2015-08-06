@@ -47,6 +47,7 @@
     "yargs": "^3.5.4"
   },
   "scripts": {
+    "start": "gulp",
     "postinstall": "bower install",
     "prestart": "npm install"
   },
